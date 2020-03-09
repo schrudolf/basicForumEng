@@ -1,0 +1,111 @@
+body {
+    height: 100%;
+    background: black;
+}
+
+.index {
+    height: 100%;
+    background: #042331;
+    color: white;
+    border-left: 2px solid #6495c8;
+    border-right: 2px solid #6495c8;
+    border-bottom: 2px solid #6495c8;
+}
+
+/* Navbar */
+.navbar-dark .navbar-toggler {
+    color: white;
+    border-color:#6495c8;
+}
+
+.navbar {
+    border-bottom: 2px solid #6495c8;
+}
+
+.menu {
+    color: white;
+    background: #042331;
+    border-left: 2px solid #6495c8;
+    border-right: 2px solid #6495c8;
+}
+
+.link {
+    color: white;
+    margin: 10px;
+    font-weight: bold;
+}
+
+/* Forum */
+
+a {
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.search {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.card {
+    margin: 0.5em 1em;
+    padding: 0.6em;
+    font-size: 1.4em;
+    height: 3em;
+    font-weight: bold;
+    background: #063146;
+    border-radius: 10%;
+    color: white;
+}
+
+.card a {
+    margin-left: 10px;
+}
+
+.card:hover {
+    background: rgb(43, 43, 195);
+    color: white;    
+}
+
+.headforum {
+    margin: 0.6em auto;
+    background: #063146;
+    padding: 0.5em;
+    border-radius: 10%;
+    /* border: solid 2px #6495c8; */
+}
+
+.headforum:hover {
+    background: rgb(43, 43, 195); 
+}
+
+.headforum:hover a {
+    color: white;
+
+}
+
+h1 {
+    margin: 0.2em 0.5em;
+}
+
+h2 {
+    padding: 1em;
+}
+
+h3 {
+    margin-top: 1em;
+}
+
+.headforum p{
+    margin: 0.5em 3em;
+    color: white;
+}
+
+/* forms */
+
+.form-control {
+    margin: 0.6em auto;
+}
