@@ -109,3 +109,13 @@ h3 {
 .form-control {
     margin: 0.6em auto;
 }
+
+/* render topic */
+
+.author {
+    color: coral;
+}
+
+.date {
+    color: blueviolet;
+}

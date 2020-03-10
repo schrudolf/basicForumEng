@@ -1,0 +1,26 @@
+<%- include('header')%>
+<%- include('menu')%>
+<div class="container">
+        <div class="container index">
+                <div class="container search ">
+                        <form class="form-inline text-right">
+                                <a href="/forum/<%= topic.contentid %>/<%= topic.forumid %>/new" class="btn btn-primary mr-3">Új Téma</a>
+                        <input class="form-control mr-sm-2 " type="search" placeholder="Szöveg..." aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">Keresés</button>
+                      </form>
+                </div>      
+                <h3><%=  %></h3>   
+                <% topic.topic.topics.forEach(function(data) {  %>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 ">
+                              <a class="card" href="/forum/<%= topic.contentid %>/<%= topic.forumid %>/<%= data.id %>"><p><%= data.title%>
+                                <span class="author"> - <%= data.author%></span><span class="date"> - <%= data.date%></span> </p>  </a> 
+                            </div>
+                        </div>
+                    </div>
+                <%  });  %>  
+                <h2> <%= topic.topics %>  </h2>
+        </div> 
+</div>
+<%- include('footer')%>

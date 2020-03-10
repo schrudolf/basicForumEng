@@ -1,5 +1,3 @@
-const mongoose = require('mongoose');
-
 module.exports = function(objRepo) {
     return function(req,res,next){
         if(typeof req.body.forumname === "undefined"){
