@@ -1,0 +1,58 @@
+<%- include('header')%>
+<%- include('menu')%>
+<div class="container">
+        <div class="container index">
+                <div class="container search ">
+                        <form class="form-inline text-right">
+                        <input class="form-control mr-sm-2 " type="search" placeholder="Szöveg..." aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">Keresés</button>
+                      </form>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center border border-info">
+                             <h1><%= data.topic.title %></h1>
+                             <p><%= data.topic.date.toLocaleString() %></p>
+                             <p><%= data.topic.author %></p>
+                             <p><%= data.topic.desc %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center border border-info">
+                             <!-- Ide jön majd for each commenteknek -->
+                             <% data.topic.comments.forEach(function(comment){ %>
+                                <div>
+                                <span> <%= comment.author %> </span>
+                                <span> <%= comment.desc %> </span> 
+                                <span> <%= comment.date.toLocaleString() %> </span> 
+                            </div>
+        
+                            <% }) %>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="container index">
+                            <h2 class="text-center">Új hozzászólás</h2>
+                            <div class="container d-flex justify-content-center">
+                                <div class="row">
+                                    <div class="control-group" id="fields">
+                                        <label class="control-label" for="field1"></label>
+                                        <div class="controls"> 
+                                            <form action="/forum/<%= data.contentid %>/<%= data.forumid %>/<%= data.topicid %>/newcomment" method="POST" role="form" autocomplete="off">
+                                                <input class="form-control" type="text" name="author" placeholder="Neved">
+                                                <textarea cols="100" rows="5"class="form-control" type="text" name="desc" placeholder="Komment leírása..."></textarea>
+                                                <button class="btn btn-success btn-block mb-3">Küldés</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+            </div>      
+               
+        </div> 
+</div>
+<%- include('footer')%>

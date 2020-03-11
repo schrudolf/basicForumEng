@@ -1,15 +1,16 @@
 module.exports = function(objRepo){
     return function(req,res,next){
-        objRepo.Forum.findById(req.params.forumid).populate('topics').exec(function(err, topic){
+        objRepo.Topic.findById(req.params.topicid).populate('comments').exec(function(err, topic){
             if(err){
                 console.log(err);
             } else {
                 let data = {
-                    topic: topic,
                     contentid: req.params.id,
-                    forumid: req.params.forumid
+                    forumid: req.params.forumid,
+                    topicid: req.params.topicid,
+                    topic: topic
                 }
-               res.render('topic', {topic: data})
+               res.render('showtopic', {data: data})
                return next();
             }
         })
