@@ -6,7 +6,8 @@ const newtopicSchema = new mongoose.Schema({
     author: String,
     desc: String,
     date: {
-        type: Date, default: new Date
+        type: Date,
+        default: Date.now
     },
     comments: [ {
         type: Schema.Types.ObjectId,

@@ -1,6 +1,6 @@
 module.exports = function(objRepo) {
     return function(req,res,next){
-        if(typeof req.body.title === "undefined" && typeof req.body.desc === "undefined"){
+        if(req.body.author === '' || req.body.desc === ''){
            console.log('nem töltött ki minden mezőt');
         } else {
             objRepo.Topic.findById(req.params.topicid, function(err, newcomment){

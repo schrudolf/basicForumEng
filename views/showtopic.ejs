@@ -10,26 +10,36 @@
                 </div>
                 <div class="container">
                     <div class="row">
-                        <div class="col-12 text-center border border-info">
-                             <h1><%= data.topic.title %></h1>
-                             <p><%= data.topic.date.toLocaleString() %></p>
+                        <div class="col-12 text-center border border-primary d-flex d-inline">
+                            <div class="col-3 mt-3">
                              <p><%= data.topic.author %></p>
+                            </div>
+                            <div class="col-9 ">
+                                <h1><%= data.topic.title %></h1>
+                             <p><%= data.topic.date.toLocaleString() %></p>
                              <p><%= data.topic.desc %></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="container">
+                <div class="container mt-3 mb-3">
                     <div class="row">
-                        <div class="col-12 text-center border border-info">
-                             <!-- Ide jön majd for each commenteknek -->
+                        <div class="col-12 text-center  mt-3">
                              <% data.topic.comments.forEach(function(comment){ %>
-                                <div>
+                                <div class="row mb-3 bg-primary">
+                             <div class="col-3 d-inline">
                                 <span> <%= comment.author %> </span>
+                             </div>
+                             <div class="col-7 d-inline">
                                 <span> <%= comment.desc %> </span> 
+                             </div>
+                             <div class="col-2 d-inline">
                                 <span> <%= comment.date.toLocaleString() %> </span> 
+                             </div>
                             </div>
-        
                             <% }) %>
+                                </div> 
+                            </div>
                         </div>
                     </div>
                 </div>
