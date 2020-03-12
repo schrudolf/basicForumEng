@@ -44,6 +44,7 @@ module.exports = function(app){
             showtopicmw(objRepo));
 
     app.use('/forum/:id/:forumid/:topicid/newcomment', 
-            newcommentmw(objRepo));
+            newcommentmw(objRepo),
+            showtopicmw(objRepo));
 };   
   
