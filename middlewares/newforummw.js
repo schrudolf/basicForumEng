@@ -6,10 +6,8 @@ module.exports = function(objRepo) {
             objRepo.Newcontent.findById(req.params.id, function(err, newcontent){
                 if(err){
                     console.log(err);
-                    res.redirect('/forum/:id/new')
                 } else {
                     objRepo.Forum.create({forumname: req.body.forumname}, function(err, newforum){
-                        console.log(newforum)
                         if(err){
                             console.log(err);
                         } else {

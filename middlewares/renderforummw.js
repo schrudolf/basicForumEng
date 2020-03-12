@@ -1,6 +1,6 @@
 module.exports = function(objRepo) {
     return function(req,res,next){
-        objRepo.Newcontent.find().populate("forums").exec(function(err, data){
+        objRepo.Newcontent.find({}, function(err, data){
             if(err){
                 console.log(err);
             } else {
@@ -8,7 +8,7 @@ module.exports = function(objRepo) {
                     }
                     next();
                 }
-            )}
+        )}
 }
         
 

@@ -6,13 +6,13 @@ module.exports = function(objRepo) {
                     console.log(err);
                 } else{
                     console.log(newcontent)
+                    res.redirect('/forum/');
+                    next();
                 }
             })
         } else {
             return res.render('newcontent');
         }
-        res.redirect('/forum/');
-        next();
     }
 }
     
