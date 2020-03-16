@@ -14,8 +14,10 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-12 ">
-                              <a class="card" href="/forum/<%= topic.contentid %>/<%= topic.forumid %>/<%= data.id %>"><p><%= data.title%>
-                                <span class="author"> - <%= data.author%></span><span class="date"> - <%= data.date.toLocaleString()%></span> </p>  </a> 
+                              <a class="card" href="/forum/<%= topic.contentid %>/<%= topic.forumid %>/<%= data.id %>"><p><span class="author"><%= data.author%> - </span>
+                                <%= data.title%>
+                                <span class="date"> - <%= data.date.toLocaleString()%></span>
+                                <span > - <%= data.desc.slice(0, 25)%>...</span> </p>  </a> 
                             </div>
                         </div>
                     </div>
