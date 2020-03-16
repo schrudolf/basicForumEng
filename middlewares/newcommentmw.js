@@ -1,7 +1,7 @@
 module.exports = function(objRepo) {
     return function(req,res,next){
         if(req.body.author === '' || req.body.desc === ''){
-                res.locals.error = 'Nem töltöttél ki minden mezőt';
+                objRepo.error.push('Nem töltöttél ki minden mezőt')
                 return next();
         } else {
             objRepo.Topic.findById(req.params.topicid, function(err, newcomment){

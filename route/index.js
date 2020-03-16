@@ -7,11 +7,17 @@ const newtopicmw = require('../middlewares/newtopicmw');
 const showtopicmw = require('../middlewares/showtopicmw');
 const newcommentmw = require('../middlewares/newcommentmw');
 
+// clear error
+
+const errormw = require('../middlewares/errormw')
+
 //models
 const Newcontent = require('../models/newcontent');
 const Forum = require('../models/forum');
 const Topic = require('../models/topic');
 const Comment = require('../models/comments');
+
+
 
 // Routing
 module.exports = function(app){
@@ -19,32 +25,41 @@ module.exports = function(app){
         Newcontent: Newcontent,
         Forum: Forum,
         Topic: Topic,
-        Comment: Comment
+        Comment: Comment,
+        error: []
     };
 
     app.get('/forum/',  
-            renderforummw(objRepo));
+        errormw(objRepo),
+        renderforummw(objRepo));
 
     app.use('/forum/newcontent',
-            newcontentmw(objRepo));
+        errormw(objRepo),
+        newcontentmw(objRepo));
 
     app.get('/forum/:id/',
-            showforumsmw(objRepo));
+        errormw(objRepo),
+        showforumsmw(objRepo));
 
-    app.use('/forum/:id/new', 
-            newforummw(objRepo));
+    app.use('/forum/:id/new',
+        errormw(objRepo), 
+        newforummw(objRepo));
 
     app.get('/forum/:id/:forumid/', 
-            topicmw(objRepo));
+        errormw(objRepo),
+        topicmw(objRepo));
 
-    app.use('/forum/:id/:forumid/new', 
-            newtopicmw(objRepo));
+    app.use('/forum/:id/:forumid/new',
+        errormw(objRepo),
+        newtopicmw(objRepo));
 
-    app.get('/forum/:id/:forumid/:topicid', 
-            showtopicmw(objRepo));
+    app.get('/forum/:id/:forumid/:topicid',
+        errormw(objRepo),
+        showtopicmw(objRepo));
 
     app.use('/forum/:id/:forumid/:topicid/newcomment', 
-            newcommentmw(objRepo),
-            showtopicmw(objRepo));
+        errormw(objRepo),
+        newcommentmw(objRepo),
+        showtopicmw(objRepo));
 };   
   

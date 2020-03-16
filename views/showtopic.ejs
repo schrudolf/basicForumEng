@@ -46,11 +46,7 @@
                 <div class="container">
                     <div class="container index">
                             <h2 class="text-center">Új hozzászólás</h2>
-                            <% if(data.error){ %>
-                            <div class="alert alert-danger text-center col-12" role="alert">
-                                <%= data.error %>
-                                            </div>
-                                            <%   } %>
+                            <%- include('errormsg')%>
                             <div class="container d-flex justify-content-center">
                                 <div class="row">
                                     

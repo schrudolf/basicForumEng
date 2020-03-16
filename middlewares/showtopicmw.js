@@ -9,9 +9,8 @@ module.exports = function(objRepo){
                     forumid: req.params.forumid,
                     topicid: req.params.topicid,
                     topic: topic,
-                    error: res.locals.error
                 }
-               res.render('showtopic', {data: data})
+               res.render('showtopic', {data: data, error: objRepo.error})
                return next();
             }
         })
