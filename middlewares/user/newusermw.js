@@ -1,3 +1,5 @@
+const bcrypt = require('bcryptjs');
+
 module.exports = function(objRepo){
     return function(req,res,next){
         const { username, email, password, repassword} = req.body;
@@ -23,9 +25,15 @@ module.exports = function(objRepo){
                             email,
                             password
                         });
-                        console.log(newUser)
-                        newUser.save();
-                        res.redirect('/forum/login')
+
+                        bcrypt.genSalt(10, (err,salt) => {
+                            bcrypt.hash(newUser.password, salt, (err, hash) => {
+                                if(err) throw err;
+                                newUser.password = hash;
+                                newUser.save()
+                                res.redirect('/forum/login')
+                                });
+                            })
                     }
                 })
                     
