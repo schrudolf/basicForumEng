@@ -7,7 +7,8 @@ const newtopicmw = require('../middlewares/newtopicmw');
 const showtopicmw = require('../middlewares/showtopicmw');
 const newcommentmw = require('../middlewares/newcommentmw');
 const login = require('../middlewares/user/login');
-const register = require('../middlewares/user/register');
+const renderregistermw = require('../middlewares/user/rendRegistermw');
+const newusermw = require('../middlewares/user/newusermw');
 
 // clear error
 
@@ -18,6 +19,7 @@ const Newcontent = require('../models/newcontent');
 const Forum = require('../models/forum');
 const Topic = require('../models/topic');
 const Comment = require('../models/comments');
+const User = require('../models/user');
 
 
 
@@ -28,15 +30,17 @@ module.exports = function(app){
         Forum: Forum,
         Topic: Topic,
         Comment: Comment,
+        User: User,
         error: []
     };
-
     app.get('/forum/',  
         errormw(objRepo),
         renderforummw(objRepo));
 
     app.use('/forum/register',
-        register(objRepo));
+        renderregistermw(objRepo),
+        newusermw(objRepo));
+        
 
     app.use('/forum/login',
         login(objRepo));
