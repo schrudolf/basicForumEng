@@ -7,15 +7,30 @@ module.exports = function(objRepo){
         if(password !== repassword){
             return console.log('A két jelszó nem eggyezik');
         }
-        else { objRepo.User.create({username, email, password}, function(err, newuser){
-            if(err){
-                return console.log(err);
-            } 
-               newuser.save();
-               console.log(newuser)
-               res.redirect('/forum/login')
-        }) 
-         //asdasd
+        else {
+            objRepo.User.findOne({ username: username}).then(user => {
+                if(user){
+                    console.log("Ez a felhasználó már létezik!")
+                    return res.render('user/register')
+                } else {
+                    objRepo.User.findOne({ email: email}).then(checkemail => {
+                        if(checkemail){
+                            console.log("Ezzel az e-mailel már regisztráltak!")
+                            return res.render('user/register')
+                    } else {
+                        const newUser = new objRepo.User({
+                            username,
+                            email,
+                            password
+                        });
+                        console.log(newUser)
+                        newUser.save();
+                        res.redirect('/forum/login')
+                    }
+                })
+                    
+                }
+            })
     }
     }
 }
