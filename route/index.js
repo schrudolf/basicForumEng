@@ -6,6 +6,8 @@ const topicmw = require('../middlewares/topicmw');
 const newtopicmw = require('../middlewares/newtopicmw');
 const showtopicmw = require('../middlewares/showtopicmw');
 const newcommentmw = require('../middlewares/newcommentmw');
+const login = require('../middlewares/user/login');
+const register = require('../middlewares/user/register');
 
 // clear error
 
@@ -32,6 +34,12 @@ module.exports = function(app){
     app.get('/forum/',  
         errormw(objRepo),
         renderforummw(objRepo));
+
+    app.use('/forum/register',
+        register(objRepo));
+
+    app.use('/forum/login',
+        login(objRepo));
 
     app.use('/forum/newcontent',
         errormw(objRepo),
