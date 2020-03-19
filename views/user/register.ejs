@@ -1,30 +1,27 @@
 <%- include('../header')%>
-<div class="container">
-        <div class="container ">
-                <div class="container d-flex justify-content-center pt-5 mb-5 ">
-                    <div class="row col-6 userform">
-                        <div class="col-12">
-                            <h1 class="text-center mb-4">Regisztráció</h1>
-                    <form action="/forum/register" method="POST" role="form" autocomplete="off">
-                        <div class="form-group">
-                            <input class="form-control" type="text" name="username" placeholder="Felhasználónév">
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" type="email" name="email" placeholder="E-mail címed">
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" type="password" name="password" placeholder="Jelszó">
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" type="password" name="repassword" placeholder="Jelszó ismét">
-                        </div>    
-                        <button class="btn btn-success btn-block mt-3 mb-3">Regisztráció</button>
-                    </form>
-                        </div>
-                    <span>Van már felhasználód? <a class="btn btn-link" href="/forum/login">Bejelentkezés</a></span>       
+    <div class="container d-flex justify-content-center pt-5 mb-5 ">
+        <div class="row userform d-flex justify-content-center">
+            <div>
+                <h1 class="text-center mb-4">Regisztráció</h1>
+                <form action="/forum/register" method="POST" role="form" autocomplete="off">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="username" placeholder="Felhasználónév">
                     </div>
-                </div>
+                    <div class="form-group">
+                        <input class="form-control" type="email" name="email" placeholder="E-mail címed">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="password" placeholder="Jelszó">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="repassword" placeholder="Jelszó ismét">
+                    </div>    
+                    <button class="btn btn-success btn-block mt-3 mb-3">Regisztráció</button>
+                </form>
+            </div>
+            <div class="container d-flex justify-content-center">
+                <span>Van már felhasználód? <a class="btn btn-link" href="/forum/login">Bejelentkezés</a></span>       
+            </div>
         </div>
-        
-</div>
+    </div>
 <%- include('../footer')%>

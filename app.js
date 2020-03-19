@@ -18,6 +18,12 @@ app.use(
     })
 );
 
+app.use(function(req,res,next) {
+    res.locals.loggedUser = req.session.successLogin;
+    res.locals.username = req.session.username;
+    next();
+})
+
 // Load routing
 require('./route/index')(app);
 

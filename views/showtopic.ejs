@@ -54,7 +54,7 @@
                                         <label class="control-label" for="field1"></label>
                                         <div class="controls"> 
                                             <form action="/forum/<%= data.contentid %>/<%= data.forumid %>/<%= data.topicid %>/newcomment" method="POST" role="form" autocomplete="off">
-                                                <input class="form-control" type="text" name="author" placeholder="Neved">
+                                                <input class="form-control" type="hidden" name="author" value="<%= username %>">
                                                 <textarea cols="100" rows="5"class="form-control" type="text" name="desc" placeholder="Komment leírása..."></textarea>
                                                 <button class="btn btn-success btn-block mb-3">Küldés</button>
                                             </form>
