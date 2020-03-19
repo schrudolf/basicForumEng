@@ -2,6 +2,7 @@ const express   = require('express');
 const dbConnect = require('./config/db');
 const mongoose  = require('mongoose');
 const app       = express();
+const flash = require('connect-flash');
 const session = require('express-session')
 
 
@@ -18,9 +19,15 @@ app.use(
     })
 );
 
+// Connect flash
+app.use(flash());
+
+// Global variables
 app.use(function(req,res,next) {
     res.locals.loggedUser = req.session.successLogin;
     res.locals.username = req.session.username;
+    res.locals.errorMsg = req.flash('error_msg');
+    res.locals.successMsg = req.flash('success_msg');
     next();
 })
 

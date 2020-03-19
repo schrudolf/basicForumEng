@@ -4,24 +4,28 @@ module.exports = function(objRepo){
     return function(req,res,next){
         if(typeof req.body.username === "undefined") {
             return res.render('user/login')
-            } 
+            }
+        if(!req.body.username || !req.body.password){
+            res.locals.errorMsg.push('Nem töltöttél ki minden mezőt!');
+            return res.render('user/login');
+        }     
         objRepo.User.findOne({username: req.body.username}, async function(err, user){
             if(err) {
                 return console.log(err);
             } else {
                 if(user === null){
-                    console.log('Nem található ilyen felhasználó')
-                    return res.redirect('/forum/login')
+                    res.locals.errorMsg.push('Nem található ilyen felhasználó');
+                    return res.render('user/login');
                 }
                 try {
                     if(await bcrypt.compare(req.body.password, user.password)) {
-                        console.log('Sikeres belépés')
+                        req.flash('success_msg', 'Üdvözöllek a fórumon! ' + user.username)
                         req.session.successLogin = true;
                         req.session.username = user.username;
                         res.redirect('/forum/') 
                     } else {
-                        console.log('Nem jó jelszó')
-                        res.redirect('/forum/login')
+                        res.locals.errorMsg.push('Hibás jelszó!');
+                        return res.render('user/login');
                     }
                 }   catch {
                     res.status(500).send()

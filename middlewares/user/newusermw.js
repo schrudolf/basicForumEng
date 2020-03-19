@@ -4,21 +4,23 @@ module.exports = function(objRepo){
     return function(req,res,next){
         const { username, email, password, repassword} = req.body;
         if(!username || !email || !password || !repassword){
-            return console.log("Nem töltöttél ki minden mezőt!");
+            res.locals.errorMsg.push("Nem töltöttél ki minden mezőt!");
+            return res.render("user/register")
         }
         if(password !== repassword){
-            return console.log('A két jelszó nem eggyezik');
+            res.locals.errorMsg.push("A két jelszó nem egyezik!");
+            return res.render("user/register")
         }
         else {
             objRepo.User.findOne({ username: username}).then(user => {
                 if(user){
-                    console.log("Ez a felhasználó már létezik!")
-                    return res.render('user/register')
+                    res.locals.errorMsg.push("A megadott felhasználónév már létezik!");
+                    return res.render("user/register")
                 } else {
                     objRepo.User.findOne({ email: email}).then(checkemail => {
                         if(checkemail){
-                            console.log("Ezzel az e-mailel már regisztráltak!")
-                            return res.render('user/register')
+                            res.locals.errorMsg.push("A megadott e-mail már létezik!");
+                            return res.render("user/register")
                     } else {
                         const newUser = new objRepo.User({
                             username,
@@ -31,6 +33,7 @@ module.exports = function(objRepo){
                                 if(err) throw err;
                                 newUser.password = hash;
                                 newUser.save()
+                                req.flash('success_msg','Sikeres regisztráció!');
                                 res.redirect('/forum/login')
                                 });
                             })
