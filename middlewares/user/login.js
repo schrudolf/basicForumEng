@@ -16,10 +16,11 @@ module.exports = function(objRepo){
                 try {
                     if(await bcrypt.compare(req.body.password, user.password)) {
                         console.log('Sikeres belépés')
-                        return res.redirect('/forum/') 
+                        req.session.successLogin = true;
+                        res.redirect('/forum/') 
                     } else {
                         console.log('Nem jó jelszó')
-                        return res.redirect('/forum/login')
+                        res.redirect('/forum/login')
                     }
                 }   catch {
                     res.status(500).send()

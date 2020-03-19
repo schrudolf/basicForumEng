@@ -12,7 +12,12 @@ const newusermw = require('../middlewares/user/newusermw');
 
 // clear error
 
-const errormw = require('../middlewares/errormw')
+const errormw = require('../middlewares/errormw');
+
+// auth
+const authmw = require('../middlewares/auth/authmw');
+const logoutmw = require('../middlewares/auth/logoutmw');
+
 
 //models
 const Newcontent = require('../models/newcontent');
@@ -33,7 +38,10 @@ module.exports = function(app){
         User: User,
         error: []
     };
-    app.get('/forum/',  
+    app.use('/forum/logout', logoutmw(objRepo));   
+
+    app.get('/forum/',
+        authmw(objRepo),  
         errormw(objRepo),
         renderforummw(objRepo));
 
@@ -41,37 +49,44 @@ module.exports = function(app){
         renderregistermw(objRepo),
         newusermw(objRepo));
         
-
     app.use('/forum/login',
         login(objRepo));
 
     app.use('/forum/newcontent',
+        authmw(objRepo),
         errormw(objRepo),
         newcontentmw(objRepo));
 
     app.get('/forum/:id/',
+        authmw(objRepo),
         errormw(objRepo),
         showforumsmw(objRepo));
 
     app.use('/forum/:id/new',
+        authmw(objRepo),
         errormw(objRepo), 
         newforummw(objRepo));
 
-    app.get('/forum/:id/:forumid/', 
+    app.get('/forum/:id/:forumid/',
+        authmw(objRepo), 
         errormw(objRepo),
         topicmw(objRepo));
 
     app.use('/forum/:id/:forumid/new',
+        authmw(objRepo),
         errormw(objRepo),
         newtopicmw(objRepo));
 
     app.get('/forum/:id/:forumid/:topicid',
+        authmw(objRepo),
         errormw(objRepo),
         showtopicmw(objRepo));
 
-    app.use('/forum/:id/:forumid/:topicid/newcomment', 
+    app.use('/forum/:id/:forumid/:topicid/newcomment',
+        authmw(objRepo), 
         errormw(objRepo),
         newcommentmw(objRepo),
         showtopicmw(objRepo));
+
 };   
   
