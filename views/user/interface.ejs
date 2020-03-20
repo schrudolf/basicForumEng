@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+            <div class="col-6">
+              <a href="#"><img style="max-height: 200px;" src="<%= user.img %>" alt="profile-img"></a>
+            </div>
+            <div class="col-6 text-right pt-3">
+              <p>Felhasználó neved: <%= user.username %></p>
+              <p>Email címed: <%= user.email %></p>
+              <% if(user.rank === 2) { %>
+                      <p>Jogosultság: Admin</p>
+                      <% } %>
+              <% if(user.rank === 1) { %>
+                      <p>Jogosultság: Moderátor</p>
+                      <% } if(user.rank === 0) { %>
+                              <p>Rang: Tag</p>  
+                      <% } %>
+                      <p>Adatok módosítása:</p>
+                      <button class="btn btn-warning" >Beállítások</button>
+            </div>
+    </div>
+</div> 
