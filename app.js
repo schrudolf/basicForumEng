@@ -25,7 +25,7 @@ app.use(flash());
 // Global variables
 app.use(function(req,res,next) {
     res.locals.loggedUser = req.session.successLogin;
-    res.locals.username = req.session.username;
+    res.locals.user = req.session.user;
     res.locals.errorMsg = req.flash('error_msg');
     res.locals.successMsg = req.flash('success_msg');
     next();

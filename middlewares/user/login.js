@@ -21,7 +21,7 @@ module.exports = function(objRepo){
                     if(await bcrypt.compare(req.body.password, user.password)) {
                         req.flash('success_msg', 'Üdvözöllek a fórumon! ' + user.username)
                         req.session.successLogin = true;
-                        req.session.username = user.username;
+                        req.session.user = user;
                         res.redirect('/forum/') 
                     } else {
                         res.locals.errorMsg.push('Hibás jelszó!');
