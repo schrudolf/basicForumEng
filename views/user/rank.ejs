@@ -1,0 +1,8 @@
+<% if(user.rank === 2) { %>
+    <p>Jogosultság: Admin</p>
+    <% } %>
+<% if(user.rank === 1) { %>
+    <p>Jogosultság: Moderátor</p>
+    <% } if(user.rank === 0) { %>
+            <p>Rank: Tag</p>  
+    <% } %>
