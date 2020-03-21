@@ -5,23 +5,23 @@
                 <div class="container search ">
                         <form class="form-inline text-right">
                         <input class="form-control mr-sm-2 " type="search" placeholder="Szöveg..." aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">Keresés</button>
+                        <button class="btn btn-dark my-2 my-sm-0 " type="submit">Keresés</button>
                       </form>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="text-center d-flex d-inline bg-primary">
-                            <div class="col-3 bg-dark p-1">
+                <div class="container d-inline pb-5">
+                    <div class="row ">
+                        <div class="col-12 text-center d-inline-flex ">
+                            <div class="col-3 bg-dark p-1 profile">
                              <p><%= data.topic.author %></p>
                                  <img class="img-fluid" src="<%= user.img %> " alt="profil-image">
                                  <div class="p-1">
                                     <%- include('user/rank')%>
                                  </div>
                             </div>
-                            <div class="col-9">
-                                <h1><%= data.topic.title %></h1>
-                             <p><%= data.topic.date.toLocaleString() %></p>
-                             <p><%= data.topic.desc %></p>
+                            <div class="col-9 showtopic p-3 ">
+                                <h1 class="p-1"><%= data.topic.title %></h1>
+                             <p class="p-1"><%= data.topic.date.toLocaleString() %></p>
+                             <p class="p-1"><%= data.topic.desc %></p>
                             </div>
                         </div>
                     </div>
@@ -30,9 +30,9 @@
                     <div class="row">
                         <div class="col-12 text-center">
                              <% data.topic.comments.forEach(function(comment){ %>
-                                <div class="mb-3 row bg-info">
-                             <div class="col-3 d-inline bg-dark">
-                                 <div class="p-1">
+                                <div class="mb-3 row bg-info ">
+                             <div class="col-3 d-inline bg-dark profile">
+                                 <div class="p-2">
                                 <p> <%= comment.author %> </p>
                                  </div>
                                 <div class="pb-3">
@@ -42,11 +42,9 @@
                                      </div>
                                 </div>
                              </div>
-                             <div class="col-7 d-inline">
-                                <span> <%= comment.desc %> </span> 
-                             </div>
-                             <div class="col-2 d-inline">
-                                <span> <%= comment.date.toLocaleString() %> </span> 
+                             <div class="col-9 d-inline p-3 showcomments">
+                                <p class="p-content p-1"> <%= comment.date.toLocaleString() %> </p> 
+                                <p class="p-content p-1"> <%= comment.desc %> </p> 
                              </div>
                             </div>
                             <% }) %>
@@ -68,7 +66,7 @@
                                             <form action="/forum/<%= data.contentid %>/<%= data.forumid %>/<%= data.topicid %>/newcomment" method="POST" role="form" autocomplete="off">
                                                 <input class="form-control" type="hidden" name="author" value="<%= user.username %>">
                                                 <textarea cols="100" rows="5"class="form-control" type="text" name="desc" placeholder="Komment leírása..."></textarea>
-                                                <button class="btn btn-success btn-block mb-3">Küldés</button>
+                                                <button class="btn btn-dark btn-block mb-3">Küldés</button>
                                             </form>
                                         </div>
                                     </div>

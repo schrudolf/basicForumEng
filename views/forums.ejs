@@ -4,7 +4,7 @@
         <div class="container index">
                 <div class="container search ">
                         <form class="form-inline text-right">
-                                <a href="/forum/<%= forums.id %>/new" class="btn btn-primary mr-3">Új Fórum</a>
+                                <a href="/forum/<%= forums.id %>/new" class="btn btn-success mr-3">Új Fórum</a>
                         <input class="form-control mr-sm-2 " type="search" placeholder="Szöveg..." aria-label="Search">
                         <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">Keresés</button>
                       </form>
@@ -13,8 +13,8 @@
                 <% forums.forums.forEach(function(data) { %>
                     <div class="container">
                         <div class="row">
-                            <div class="col-12">
-                              <a href="/forum/<%= forums.id %>/<%= data.id %>"><p class="card"><%= data.forumname%> </p></a>  
+                            <div class="col-12 headforum">
+                              <a href="/forum/<%= forums.id %>/<%= data.id %>"><h1 class="h1-content"><%= data.forumname%> </h1></a>  
                             </div>
                         </div>
                     </div>

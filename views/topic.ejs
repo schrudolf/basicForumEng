@@ -4,7 +4,7 @@
         <div class="container index">
                 <div class="container search ">
                         <form class="form-inline text-right">
-                                <a href="/forum/<%= topic.contentid %>/<%= topic.forumid %>/new" class="btn btn-primary mr-3">Új Téma</a>
+                                <a href="/forum/<%= topic.contentid %>/<%= topic.forumid %>/new" class="btn btn-success mr-3">Új Téma</a>
                         <input class="form-control mr-sm-2 " type="search" placeholder="Szöveg..." aria-label="Search">
                         <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">Keresés</button>
                       </form>
@@ -12,12 +12,16 @@
                 <h3><%=  %></h3>   
                 <% topic.topic.topics.forEach(function(data) {  %>
                     <div class="container">
-                        <div class="row">
-                            <div class="col-12 ">
-                              <a class="card" href="/forum/<%= topic.contentid %>/<%= topic.forumid %>/<%= data.id %>"><p><span class="author"><%= data.author%> - </span>
-                                <%= data.title%>
-                                <span class="date"> - <%= data.date.toLocaleString()%></span>
-                                <span > - <%= data.desc.slice(0, 25)%>...</span> </p>  </a> 
+                        <div class="row ">
+                            <div class="col-12 headforum ">
+                              <a  href="/forum/<%= topic.contentid %>/<%= topic.forumid %>/<%= data.id %>"><p>
+                                  <p class="p-content" ><%= data.title%></p>
+                                <h1 class="horizontal-line" ></h1>
+                                   <p class="p-content" ><%= data.desc.slice(0, 25)%>... </p>
+                                <h1 class="horizontal-line" ></h1>
+                                    <p class="author p-content "><%= data.author%> </p>  
+                                <h1 class="horizontal-line" ></h1>
+                                    <p class="date "> - <%= data.date.toLocaleString()%></p></a>
                             </div>
                         </div>
                     </div>

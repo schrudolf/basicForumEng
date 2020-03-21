@@ -3,13 +3,15 @@
 <div class="container">
         <div class="container index">
                 <h4 class="pt-2"><%- include('msg')%></h4> 
-                      <%- include('user/interface') %>    
+                      <%- include('user/interface') %>
+                      <p class="underline"></p>    
                 <% content.forEach(function(data) { %>
                         <div class="container">
                                 <div class="row">
                                         <div class="headforum col-12">
-                                                <a href="<%= data.id%>/"><h1><%= data.title%></h1></a>
-                                                  <p><%= data.desc%></p>
+                                                <a href="<%= data.id%>/"><h1 class="h1-content"><%= data.title%></h1>
+                                                        <h1 class="horizontal-line" ></h1>
+                                                        <p class="p-content"><%= data.desc.slice(0,50)%></p></a>
                                         </div>
                                 </div>
                         </div>       

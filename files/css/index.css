@@ -3,20 +3,38 @@ body {
     background: black;
 }
 
+p {
+    font-family:Arial Black;
+}
+
+.headforum p {
+    display: inline;
+}
+
 .index {
     height: 100%;
-    background: #042331;
+    background: rgb(64, 107, 189);
     color: white;
-    border-left: 2px solid #6495c8;
-    border-right: 2px solid #6495c8;
-    border-bottom: 2px solid #6495c8;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
 }
 
 .userform {
     height: 100%;
-    background: #06425d;
+    background: rgb(64, 107, 189);
     color: white;
-    border: 2px solid #256ab4;
+}
+
+.userform a {
+    color: rgb(72, 190, 111);
+    font-weight: bold;
+}
+
+.userform a:hover {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 /* Navbar */
@@ -26,14 +44,14 @@ body {
 }
 
 .navbar {
-    border-bottom: 2px solid #6495c8;
+    border-bottom: 2px solid white;
 }
 
 .menu {
     color: white;
-    background: #042331;
-    border-left: 2px solid #6495c8;
-    border-right: 2px solid #6495c8;
+    background: rgb(64, 107, 189);
+    border-left: 2px solid white;
+    border-right: 2px solid white;
 }
 
 .link {
@@ -50,6 +68,7 @@ a {
 
 a:hover {
     text-decoration: none;
+    color: rgb(238, 119, 119);
 }
 
 .search {
@@ -57,45 +76,44 @@ a:hover {
     padding-bottom: 1em;
 }
 
-.card {
-    margin: 0.5em 1em;
-    padding: 0.6em;
-    font-size: 1.4em;
-    height: 3em;
-    font-weight: bold;
-    background: #063146;
-    border-radius: 10%;
-    color: white;
-}
-
-.card a {
-    margin-left: 10px;
-}
-
-.card:hover {
-    background: rgb(43, 43, 195);
-    color: white;    
-}
 
 .headforum {
     margin: 0.6em auto;
-    background: #063146;
+    background: rgb(89, 87, 102);
     padding: 0.5em;
-    border-radius: 10%;
-    /* border: solid 2px #6495c8; */
+    border: 1px solid white;
+    border-radius: 5px;
 }
 
 .headforum:hover {
-    background: rgb(43, 43, 195); 
+    background: rgb(80, 78, 92); 
+    color: black;
 }
 
-.headforum:hover a {
+/* lines */
+
+.underline {
+    border-bottom: 2px solid white;
+    padding-top: 1em;
+}
+
+.horizontal-line {
+    border-left: 1px solid white;
+}
+
+.h1-content {
     color: white;
-
 }
+
+.p-content {
+    color: white;
+    font-size: 1.1rem;
+}
+
 
 h1 {
     margin: 0.2em 0.5em;
+    display: inline;
 }
 
 h2 {
@@ -104,11 +122,6 @@ h2 {
 
 h3 {
     margin-top: 1em;
-}
-
-.headforum p{
-    margin: 0.5em 3em;
-    color: white;
 }
 
 /* forms */
@@ -125,4 +138,25 @@ h3 {
 
 .date {
     color: blueviolet;
+}
+
+
+/* showtopic */
+
+.comments {
+    border: 1px solid white;
+}
+
+.showtopic {
+    background: rgb(190, 70, 70);
+    border: 2px solid white;
+}
+
+.showcomments {
+    background: rgb(89, 87, 102);
+    border: 2px solid white;
+}
+
+.profile {
+    border: 3px solid white;
 }
