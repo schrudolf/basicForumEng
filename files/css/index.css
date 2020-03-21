@@ -31,6 +31,10 @@ p {
     font-weight: bold;
 }
 
+.userform input:valid {
+    background: rgb(255, 249, 162);
+}
+
 .userform a:hover {
     color: white;
     font-weight: bold;
@@ -130,16 +134,24 @@ h3 {
     margin: 0.6em auto;
 }
 
-/* render topic */
+/* all topic */
 
 .author {
-    color: coral;
+    color: rgb(224, 77, 77);
 }
 
 .date {
-    color: blueviolet;
+    color: rgb(181, 199, 218);
 }
 
+.title {
+    color: rgb(224, 77, 77);
+    font-size: 1.5rem;
+}
+
+.desc {
+    color: rgb(238, 204, 160);
+}
 
 /* showtopic */
 
@@ -150,6 +162,13 @@ h3 {
 .showtopic {
     background: rgb(190, 70, 70);
     border: 2px solid white;
+}
+
+.show-desc {
+    line-height: 1.5em;
+    overflow: hidden;
+    max-width: 75ch;
+    text-align: left;
 }
 
 .showcomments {

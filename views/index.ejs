@@ -8,10 +8,10 @@
                 <% content.forEach(function(data) { %>
                         <div class="container">
                                 <div class="row">
-                                        <div class="headforum col-12">
+                                        <div class="headforum col-12 ">
                                                 <a href="<%= data.id%>/"><h1 class="h1-content"><%= data.title%></h1>
-                                                        <h1 class="horizontal-line" ></h1>
-                                                        <p class="p-content"><%= data.desc.slice(0,50)%></p></a>
+                                                <h1 class="text-center">-</h1>
+                                                <p class="p-content"><%= data.desc.slice(0,50)%></p></a>
                                         </div>
                                 </div>
                         </div>       

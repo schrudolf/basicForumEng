@@ -15,13 +15,16 @@
                         <div class="row ">
                             <div class="col-12 headforum ">
                               <a  href="/forum/<%= topic.contentid %>/<%= topic.forumid %>/<%= data.id %>"><p>
-                                  <p class="p-content" ><%= data.title%></p>
-                                <h1 class="horizontal-line" ></h1>
-                                   <p class="p-content" ><%= data.desc.slice(0, 25)%>... </p>
-                                <h1 class="horizontal-line" ></h1>
+                                <p class="p-content title" ><%= data.title%></p>
+                                <div>
+                                    <p class="p-content desc" ><%= data.desc.slice(0, 75)%>...</p>
+                                </div>
+                                <div>
+                                    <span>Létrehozta: </span>
                                     <p class="author p-content "><%= data.author%> </p>  
-                                <h1 class="horizontal-line" ></h1>
-                                    <p class="date "> - <%= data.date.toLocaleString()%></p></a>
+                                    <p class="date"><%= data.date.toLocaleString()%></p></a>
+                                </div>
+                                           
                             </div>
                         </div>
                     </div>

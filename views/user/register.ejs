@@ -6,16 +6,16 @@
                 <%- include('../msg')%>
                 <form action="/forum/register" method="POST" role="form" autocomplete="off">
                     <div class="form-group">
-                        <input class="form-control" type="text" name="username" placeholder="Felhasználónév">
+                        <input class="form-control" type="text" name="username" placeholder="Felhasználónév" required>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="email" name="email" placeholder="E-mail címed">
+                        <input class="form-control" type="email" name="email" placeholder="E-mail címed" required>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="password" name="password" placeholder="Jelszó">
+                        <input class="form-control" type="password" name="password" placeholder="Jelszó" required>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="password" name="repassword" placeholder="Jelszó ismét">
+                        <input class="form-control" type="password" name="repassword" placeholder="Jelszó ismét" required>
                     </div>    
                     <button class="btn btn-success btn-block mt-3 mb-3">Regisztráció</button>
                 </form>
