@@ -1,12 +1,16 @@
 module.exports = function(objRepo){
     return function(req,res,next) {
-        objRepo.Comment.findByIdAndDelete({_id: req.params.commentid}, function(err, comment){
+        objRepo.Comment.findOne({_id: req.params.commentid}, function(err, comment){
             if(err){
                 req.flash('error_msg', 'Hiba nem törölhető!')
-                return res.redirect('back');
+                return res.redirect('/forum/' + req.params.contentid + "/" + req.params.forumid + "/" + req.params.topicid);
+            } if(comment.author !== user.username){
+                req.flash('error_msg', 'Csak a saját hozzászólásod törölheted!')
+                return res.redirect('/forum/' + req.params.contentid + "/" + req.params.forumid + "/" + req.params.topicid);
             } else {
-                req.flash('success_msg', 'Sikeresen törölted!')
-                return res.redirect('back');
+                comment.delete();
+                req.flash('success_msg', 'Sikeresen törölted a hozzászólásod!');
+                return res.redirect('/forum/' + req.params.contentid + "/" + req.params.forumid + "/" + req.params.topicid);
             }
         })
     }
