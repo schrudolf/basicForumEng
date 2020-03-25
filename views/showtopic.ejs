@@ -8,6 +8,7 @@
                         <button class="btn btn-dark my-2 my-sm-0 " type="submit">Keresés</button>
                       </form>
                 </div>
+                <%- include('msg')%>
                 <div class="container d-inline pb-5">
                     <div class="row ">
                         <div class="col-12 text-center d-inline-flex ">
@@ -22,10 +23,12 @@
                                 <h1 class="p-1"><%= data.topic.title %></h1>
                              <p class="p-1 pt-3">Létrehozva: <%= data.topic.date.toLocaleString() %></p>
                              <p class="p-1 show-desc"><%= data.topic.desc %></p>
+                             <% if(data.topic.author === user.username) { %>
                              <div class="d-flex align-items-end justify-content-end " style="height: 200px;">
                                 <a href="#" class="m-1 p-2 badge badge-dark">Módosítás</a>
                                 <a href="#" class="m-1 p-2 badge badge-dark">Törlés</a>
                               </div>
+                              <% }%>
                             </div>
                         </div>
                     </div>
@@ -49,10 +52,12 @@
                              <div class="col-9 d-inline p-3 showcomments">
                                 <p class="p-content p-1">Elküldve: <%= comment.date.toLocaleString() %> </p> 
                                 <p class=" p-1 show-desc"> <%= comment.desc %> </p>
+                                <% if(comment.author === user.username) { %>
                                 <div class="d-flex align-items-end justify-content-end " style="height: 200px;">
                                     <a href="#" class="m-1 p-2 badge badge-warning">Módosítás</a>
-                                    <a href="#" class="m-1 p-2 badge badge-danger">Törlés</a>
-                                  </div> 
+                                    <a href="/forum/<%= data.contentid %>/<%= data.forumid %>/<%= data.topicid %>/<%= comment.id%>/delete" class="m-1 p-2 badge badge-danger">Törlés</a>
+                                  </div>
+                                  <% }%>
                              </div>
                             </div>
                             <% }) %>
@@ -64,7 +69,6 @@
                 <div class="container">
                     <div class="container index">
                             <h2 class="text-center">Új hozzászólás</h2>
-                            <%- include('msg')%>
                             <div class="container d-flex justify-content-center">
                                 <div class="row">
                                     

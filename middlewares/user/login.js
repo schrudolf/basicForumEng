@@ -13,7 +13,7 @@ module.exports = function(objRepo){
             if(err) {
                 return console.log(err);
             } else {
-                if(user === null){
+                if(!user){
                     res.locals.errorMsg.push('Nem található ilyen felhasználó');
                     return res.render('user/login');
                 }

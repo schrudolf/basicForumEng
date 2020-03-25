@@ -6,6 +6,7 @@ const topicmw = require('../middlewares/topicmw');
 const newtopicmw = require('../middlewares/newtopicmw');
 const showtopicmw = require('../middlewares/showtopicmw');
 const newcommentmw = require('../middlewares/newcommentmw');
+const deletecommentmw = require('../middlewares/user/deletecommentmw');
 const login = require('../middlewares/user/login');
 const renderregistermw = require('../middlewares/user/rendRegistermw');
 const newusermw = require('../middlewares/user/newusermw');
@@ -35,6 +36,7 @@ module.exports = function(app){
         Comment: Comment,
         User: User
     };
+
     app.use('/forum/logout', logoutmw(objRepo));   
 
     app.get('/forum/',
@@ -76,6 +78,9 @@ module.exports = function(app){
         authmw(objRepo), 
         newcommentmw(objRepo),
         showtopicmw(objRepo));
-
+        
+    app.use('/forum/:id/:forumid/:topicid/:commentid/delete',
+        authmw(objRepo), 
+        deletecommentmw(objRepo));
 };   
   

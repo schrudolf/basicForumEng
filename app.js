@@ -36,7 +36,7 @@ app.use(function(req,res,next) {
 // Load routing
 require('./route/index')(app);
 
-app.listen(3000, function(err){
+app.listen(3000,  function(err){
     if(err){
         console.log(err);
     } else {
