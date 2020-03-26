@@ -54,7 +54,7 @@
                                 <p class=" p-1 show-desc"> <%= comment.desc %> </p>
                                 <% if(comment.author === user.username) { %>
                                 <div class="d-flex align-items-end justify-content-end " style="height: 200px;">
-                                    <a href="#" class="m-1 p-2 badge badge-warning">Módosítás</a>
+                                    <a href="/forum/<%= data.contentid %>/<%= data.forumid %>/<%= data.topicid %>/<%= comment.id%>/edit" class="m-1 p-2 badge badge-warning">Módosítás</a>
                                     <a href="/forum/<%= data.contentid %>/<%= data.forumid %>/<%= data.topicid %>/<%= comment.id%>/delete" class="m-1 p-2 badge badge-danger">Törlés</a>
                                   </div>
                                   <% }%>
@@ -71,13 +71,12 @@
                             <h2 class="text-center">Új hozzászólás</h2>
                             <div class="container d-flex justify-content-center">
                                 <div class="row">
-                                    
                                     <div class="control-group" id="fields">
                                         <label class="control-label" for="field1"></label>
                                         <div class="controls"> 
                                             <form action="/forum/<%= data.contentid %>/<%= data.forumid %>/<%= data.topicid %>/newcomment" method="POST" role="form" autocomplete="off">
                                                 <input class="form-control" type="hidden" name="author" value="<%= user.username %>">
-                                                <textarea cols="100" rows="5"class="form-control" type="text" name="desc" placeholder="Komment leírása..."></textarea>
+                                                <textarea cols="100" rows="10"class="form-control" type="text" name="desc" placeholder="szöveg..."></textarea>
                                                 <button class="btn btn-dark btn-block mb-3">Küldés</button>
                                             </form>
                                         </div>

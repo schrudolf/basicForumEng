@@ -8,6 +8,7 @@ const showtopicmw = require('../middlewares/showtopicmw');
 const newcommentmw = require('../middlewares/newcommentmw');
 const edittopicmw = require('../middlewares/user/edittopicmw');
 const deletetopicmw = require('../middlewares/user/deletetopicmw');
+const editcommentmw = require('../middlewares/user/editcommentmw');
 const deletecommentmw = require('../middlewares/user/deletecommentmw');
 const login = require('../middlewares/user/login');
 const renderregistermw = require('../middlewares/user/rendRegistermw');
@@ -88,6 +89,10 @@ module.exports = function(app){
         authmw(objRepo), 
         newcommentmw(objRepo),
         showtopicmw(objRepo));
+    
+    app.use('/forum/:id/:forumid/:topicid/:commentid/edit',
+        authmw(objRepo), 
+        editcommentmw(objRepo));
         
     app.get('/forum/:id/:forumid/:topicid/:commentid/delete',
         authmw(objRepo), 
