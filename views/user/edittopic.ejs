@@ -1,0 +1,24 @@
+<%- include('../header')%>
+<%- include('../menu')%>
+<div class="container">
+        <div class="container index">
+                <h2 class="text-center"><%=topic.title%> - Módosítása </h2>
+                <div class="container d-flex justify-content-center">
+                    <div class="row">
+                        <div class="control-group" id="fields">
+                            <label class="control-label" for="field1"></label>
+                            <div class="controls">
+                                <%- include('../msg')%> 
+                                <form action="/forum/<%=id %>/<%=forumid %>/<%=topicid%>/edit" method="POST" role="form" autocomplete="off">
+                                    <input class="form-control" type="text" name="title" value="<%=topic.title%>">
+                                    <textarea cols="100" rows="15" class="form-control" type="text" name="desc" ><%=topic.desc%></textarea>    
+                                    <button class="btn btn-warning btn-block mb-3">Mentés</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="btn btn-success btn-sm mb-3" href="/forum/<%= id %>/<%= forumid %>/<%= topicid %>">Vissza</a>
+           </div>
+    </div>                 
+<%- include('../footer')%>

@@ -25,7 +25,7 @@
                              <p class="p-1 show-desc"><%= data.topic.desc %></p>
                              <% if(data.topic.author === user.username) { %>
                              <div class="d-flex align-items-end justify-content-end " style="height: 200px;">
-                                <a href="#" class="m-1 p-2 badge badge-dark">Módosítás</a>
+                                <a href="/forum/<%= data.contentid %>/<%= data.forumid %>/<%= data.topicid %>/edit" class="m-1 p-2 badge badge-dark">Módosítás</a>
                                 <a href="/forum/<%= data.contentid %>/<%= data.forumid %>/<%= data.topicid %>/delete" class="m-1 p-2 badge badge-dark">Törlés</a>
                               </div>
                               <% }%>
