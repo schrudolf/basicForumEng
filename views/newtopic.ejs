@@ -12,6 +12,7 @@
                                 <form action="/forum/<%=id %>/<%=forumid %>/new" method="POST" role="form" autocomplete="off">
                                     <input class="form-control" type="text" name="title" placeholder="Tartalom neve...">
                                     <input class="form-control" type="hidden" name="author" value="<%= user.username %>">
+                                    <input class="form-control" type="hidden" name="img" value="<%= user.img %>">
                                     <textarea cols="100" rows="5" class="form-control" type="text" name="desc" placeholder="leírás..."></textarea>
                                     <button class="btn btn-success btn-block mb-3">Küldés</button>
                                 </form>

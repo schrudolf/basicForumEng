@@ -5,7 +5,7 @@
         <div class="justify-content-end">
             <% if(loggedUser) { %>
                 <span><span><%= user.username %></span>
-                 <a href="#"><img class="img-fluid" style="max-height: 50px;" src="<%= user.img %>" alt="profile-img"></a>
+                 <a href="/forum/user/<%= user._id%>/edit"><img class="img-fluid" style="max-height: 50px;" src="<%= user.img %>" alt="profile-img"></a>
                 </span><a class="link" href="/forum/logout">Kijelentkezés</a>
             <% } else {%>
                 <a class="link" href="/forum/login">Bejelentkezés</a>

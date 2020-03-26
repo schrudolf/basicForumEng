@@ -6,6 +6,7 @@ const topicmw = require('../middlewares/topicmw');
 const newtopicmw = require('../middlewares/newtopicmw');
 const showtopicmw = require('../middlewares/showtopicmw');
 const newcommentmw = require('../middlewares/newcommentmw');
+const edituserimgmw = require('../middlewares/user/edituserimgmw');
 const edittopicmw = require('../middlewares/user/edittopicmw');
 const deletetopicmw = require('../middlewares/user/deletetopicmw');
 const editcommentmw = require('../middlewares/user/editcommentmw');
@@ -52,6 +53,10 @@ module.exports = function(app){
         
     app.use('/forum/login',
         login(objRepo));
+
+    app.use('/forum/user/:userid/edit',
+        authmw(objRepo),  
+        edituserimgmw(objRepo));
 
     app.use('/forum/newcontent',
         authmw(objRepo),

@@ -1,0 +1,24 @@
+<%- include('../header')%>
+<%- include('../menu')%>
+<div class="container">
+        <div class="container index">
+                <h2 class="text-center">Profilkép Módosítása</h2>
+                <div class="container d-flex justify-content-center">
+                    <div class="row">
+                        <div class="control-group" id="fields">
+                            <label class="control-label" for="field1"></label>
+                            <div class="controls">
+                                <%- include('../msg')%>
+                                <span>Például: https://valami.hu/asd123.jpg</span>
+                                <form action="/forum/user/<%= user._id%>/edit" method="POST" role="form" autocomplete="off">
+                                    <input style="width: 300px" class="form-control" type="text" name="img" value="<%=user.img%>"> 
+                                    <button class="btn btn-warning btn-block mb-3">Mentés</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="btn btn-success btn-sm mb-3" href="/forum/">Vissza</a>
+           </div>
+    </div>                 
+<%- include('../footer')%>

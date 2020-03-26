@@ -14,7 +14,7 @@
                         <div class="col-12 text-center d-inline-flex ">
                             <div class="col-3 bg-dark p-1 profile">
                              <p><%= data.topic.author %></p>
-                                 <img class="img-fluid" src="<%= user.img %> " alt="profil-image">
+                                 <img class="img-fluid" src="<%= data.topic.img %> " alt="profil-image">
                                  <div class="p-1">
                                     <%- include('user/rank')%>
                                  </div>
@@ -43,7 +43,7 @@
                                 <p> <%= comment.author %> </p>
                                  </div>
                                 <div class="pb-3">
-                                    <img class="img-fluid" src="<%= user.img %> " alt="profil-image">
+                                    <img class="img-fluid" src="<%= comment.img %> " alt="profil-image">
                                     <div class="p-1">
                                         <%- include('user/rank')%>
                                      </div>
@@ -76,6 +76,7 @@
                                         <div class="controls"> 
                                             <form action="/forum/<%= data.contentid %>/<%= data.forumid %>/<%= data.topicid %>/newcomment" method="POST" role="form" autocomplete="off">
                                                 <input class="form-control" type="hidden" name="author" value="<%= user.username %>">
+                                                <input class="form-control" type="hidden" name="img" value="<%= user.img %>">
                                                 <textarea cols="100" rows="10"class="form-control" type="text" name="desc" placeholder="szöveg..."></textarea>
                                                 <button class="btn btn-dark btn-block mb-3">Küldés</button>
                                             </form>

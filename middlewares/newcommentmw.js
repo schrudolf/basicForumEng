@@ -8,7 +8,7 @@ module.exports = function(objRepo) {
                 if(err){
                     res.redirect('/forum/')
                 } else {
-                    objRepo.Comment.create({author: req.body.author, desc: req.body.desc}, function(err, comment){
+                    objRepo.Comment.create({author: req.body.author, desc: req.body.desc, img: req.body.img}, function(err, comment){
                         if(err){
                             console.log(err);
                         } else {

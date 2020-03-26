@@ -11,7 +11,7 @@ module.exports = function(objRepo) {
                 if(err){
                     console.log(err);
                 } else {
-                    objRepo.Topic.create({title: req.body.title, author: req.body.author, desc: req.body.desc}, function(err, newtopic){
+                    objRepo.Topic.create({title: req.body.title, author: req.body.author, desc: req.body.desc, img: req.body.img}, function(err, newtopic){
                         if(err){
                             console.log(err);
                         } else {

@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 let commentsSchema = new mongoose.Schema({
     author: String,
     desc: String,
+    img: String,
     date: {
        type: Date,
        default: Date.now

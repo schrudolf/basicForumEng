@@ -5,6 +5,7 @@ const newtopicSchema = new mongoose.Schema({
     title: String,
     author: String,
     desc: String,
+    img: String,
     date: {
         type: Date,
         default: Date.now
