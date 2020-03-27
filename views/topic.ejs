@@ -4,27 +4,30 @@
         <div class="container index">
                 <div class="container search ">
                         <form class="form-inline text-right">
-                                <a href="/forum/<%= topic.contentid %>/<%= topic.forumid %>/new" class="btn btn-success mr-3">Új Téma</a>
+                                <a href="/forum/<%= topic.contentid %>/<%= topic.forumid %>/new"><i class="fa fa-plus" aria-hidden="true"></i></a>
                         <input class="form-control mr-sm-2 " type="search" placeholder="Szöveg..." aria-label="Search">
                         <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">Keresés</button>
                       </form>
-                </div>      
-                <%- include('msg')%>   
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <%- include('msg')%>
+                    </div>
+                </div>         
                 <% topic.topic.topics.forEach(function(data) {  %>
                     <div class="container">
                         <div class="row ">
                             <div class="col-12 headforum ">
                               <a  href="/forum/<%= topic.contentid %>/<%= topic.forumid %>/<%= data.id %>"><p>
                                 <p class="p-content title" ><%= data.title%></p>
-                                <div>
+                                <span>
                                     <p class="p-content desc" ><%= data.desc.slice(0, 75)%>...</p>
-                                </div>
+                                </span>
                                 <div>
                                     <span>Létrehozta: </span>
                                     <p class="author p-content "><%= data.author%> </p>  
                                     <p class="date"><%= data.date.toLocaleString()%></p></a>
-                                </div>
-                                           
+                                </div>    
                             </div>
                         </div>
                     </div>

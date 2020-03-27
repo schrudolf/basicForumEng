@@ -17,6 +17,7 @@ module.exports = function(objRepo) {
                         } else {
                             forum.topics.push(newtopic);
                             forum.save();
+                            req.flash("success_msg", "Sikeresen létrehoztad - " + req.body.title)
                             res.redirect('/forum/' + req.params.id + '/' + req.params.forumid + '/');
                             return next();
                         }

@@ -13,7 +13,7 @@ p {
 
 .index {
     height: 100%;
-    background: rgb(64, 107, 189);
+    background: rgb(124, 158, 218);
     color: white;
     border-left: 2px solid white;
     border-right: 2px solid white;
@@ -52,7 +52,10 @@ p {
 }
 
 .menu {
-    color: white;
+    color: rgb(46, 226, 100);
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: capitalize;
     background: rgb(64, 107, 189);
     border-left: 2px solid white;
     border-right: 2px solid white;
@@ -83,27 +86,18 @@ a:hover {
 
 .headforum {
     margin: 0.6em auto;
-    background: rgb(89, 87, 102);
+    background: rgb(64, 107, 189);
     padding: 0.5em;
     border: 1px solid white;
     border-radius: 5px;
 }
 
 .headforum:hover {
-    background: rgb(80, 78, 92); 
+    background: rgb(47, 95, 184); 
     color: black;
 }
 
 /* lines */
-
-.underline {
-    border-bottom: 2px solid white;
-    padding-top: 1em;
-}
-
-.horizontal-line {
-    border-left: 1px solid white;
-}
 
 .h1-content {
     color: white;
@@ -160,8 +154,8 @@ h3 {
 }
 
 .showtopic {
-    background: rgb(190, 70, 70);
-    border: 2px solid white;
+    background:rgb(103, 121, 155);
+    border: 1px solid white;
 }
 
 .show-desc {
@@ -172,10 +166,66 @@ h3 {
 }
 
 .showcomments {
-    background: rgb(89, 87, 102);
+    background: rgb(64, 107, 189);
     border: 2px solid white;
 }
 
 .profile {
-    border: 3px solid white;
+    border: 1px solid white;
+}
+
+.topic-img {
+    border-radius: 5%;
+    min-width: 100%;
+}
+
+/* icons */
+
+.fa {
+    font-size: 2em;
+    color:rgb(23, 19, 39);
+    margin: auto 0.5em;
+}
+
+.fa:hover {
+    color: white;
+    transform: scale(1.5);
+    transition-duration: 1s;
+}
+
+/* profil img */
+
+.sm-profil-img {
+    max-height: 50px;
+    border-radius: 100%;
+}
+
+.user-normal-img {
+    max-height: 200px;
+    border-radius: 5%;
+}
+
+/* alerts */
+
+.alert-success {
+    background: rgb(14, 187, 14);
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 15px 20px;
+    padding: 0.8rem;
+    text-align: center;
+    border-radius: 15px;
+
+}
+
+.alert-danger {
+    background: rgb(187, 48, 23);
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 12px 15px;
+    padding: 0.8rem;
+    text-align: center;
+    border-radius: 15px;
 }

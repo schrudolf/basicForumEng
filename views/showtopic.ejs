@@ -1,7 +1,7 @@
 <%- include('header')%>
 <%- include('menu')%>
-<div class="container">
-        <div class="container index">
+<div class="container ">
+        <div class=" index">
                 <div class="container search ">
                         <form class="form-inline text-right">
                         <input class="form-control mr-sm-2 " type="search" placeholder="Szöveg..." aria-label="Search">
@@ -10,11 +10,11 @@
                 </div>
                 <%- include('msg')%>
                 <div class="container d-inline pb-5">
-                    <div class="row ">
+                    <div class="row">
                         <div class="col-12 text-center d-inline-flex ">
                             <div class="col-3 bg-dark p-1 profile">
                              <p><%= data.topic.author %></p>
-                                 <img class="img-fluid" src="<%= data.topic.img %> " alt="profil-image">
+                                 <img class="img-fluid topic-img" src="<%= data.topic.img %> " alt="profil-image">
                                  <div class="p-1">
                                     <%- include('user/rank')%>
                                  </div>
@@ -25,37 +25,37 @@
                              <p class="p-1 show-desc"><%= data.topic.desc %></p>
                              <% if(data.topic.author === user.username) { %>
                              <div class="d-flex align-items-end justify-content-end " style="height: 200px;">
-                                <a href="/forum/<%= data.contentid %>/<%= data.forumid %>/<%= data.topicid %>/edit" class="m-1 p-2 badge badge-dark">Módosítás</a>
-                                <a href="/forum/<%= data.contentid %>/<%= data.forumid %>/<%= data.topicid %>/delete" class="m-1 p-2 badge badge-dark">Törlés</a>
+                                <a title="Módosítás" href="/forum/<%= data.contentid %>/<%= data.forumid %>/<%= data.topicid %>/edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                <a title="Törlés" href="/forum/<%= data.contentid %>/<%= data.forumid %>/<%= data.topicid %>/delete" ><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                               </div>
                               <% }%>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="container mt-3 mb-3">
+                <div class="container mt-5">
                     <div class="row">
                         <div class="col-12 text-center">
                              <% data.topic.comments.forEach(function(comment){ %>
-                                <div class="mb-3 row bg-info ">
-                             <div class="col-3 d-inline bg-dark profile">
-                                 <div class="p-2">
+                                <div class="mb-3 row">
+                             <div class="col-3 bg-dark profile">
+                                 <div class="mb-3">
                                 <p> <%= comment.author %> </p>
                                  </div>
                                 <div class="pb-3">
-                                    <img class="img-fluid" src="<%= comment.img %> " alt="profil-image">
+                                    <img class="img-fluid topic-img" src="<%= comment.img %> " alt="profil-image">
                                     <div class="p-1">
                                         <%- include('user/rank')%>
                                      </div>
                                 </div>
                              </div>
-                             <div class="col-9 d-inline p-3 showcomments">
+                             <div class="col-9 p-3 showcomments">
                                 <p class="p-content p-1">Elküldve: <%= comment.date.toLocaleString() %> </p> 
                                 <p class=" p-1 show-desc"> <%= comment.desc %> </p>
                                 <% if(comment.author === user.username) { %>
-                                <div class="d-flex align-items-end justify-content-end " style="height: 200px;">
-                                    <a href="/forum/<%= data.contentid %>/<%= data.forumid %>/<%= data.topicid %>/<%= comment.id%>/edit" class="m-1 p-2 badge badge-warning">Módosítás</a>
-                                    <a href="/forum/<%= data.contentid %>/<%= data.forumid %>/<%= data.topicid %>/<%= comment.id%>/delete" class="m-1 p-2 badge badge-danger">Törlés</a>
+                                <div class="d-flex align-items-end justify-content-end" style="height: 200px;">
+                                    <a title="Módosítás" href="/forum/<%= data.contentid %>/<%= data.forumid %>/<%= data.topicid %>/<%= comment.id%>/edit" ><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                    <a title="Törlés" href="/forum/<%= data.contentid %>/<%= data.forumid %>/<%= data.topicid %>/<%= comment.id%>/delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                   </div>
                                   <% }%>
                              </div>

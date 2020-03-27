@@ -4,8 +4,10 @@
         <a href="/forum/newcontent/" class="btn btn-dark mr-3">Új tartalom</a>
         <div class="justify-content-end">
             <% if(loggedUser) { %>
-                <span><span><%= user.username %></span>
-                 <a href="/forum/user/<%= user._id%>/edit"><img class="img-fluid" style="max-height: 50px;" src="<%= user.img %>" alt="profile-img"></a>
+                <span class="mr-2">
+                     <%= user.username %>
+                </span>
+                 <a href="/forum/user/<%= user._id%>/edit"><img class="img-fluid sm-profil-img" src="<%= user.img %>" alt="profile-img"></a>
                 </span><a class="link" href="/forum/logout">Kijelentkezés</a>
             <% } else {%>
                 <a class="link" href="/forum/login">Bejelentkezés</a>
