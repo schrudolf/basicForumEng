@@ -3,7 +3,7 @@ module.exports = function(objRepo){
         objRepo.User.findOne({_id: req.params.userid}, function(err, currentUser){
             if(err){
                 return console.log(err);
-            } if(currentUser.username !== user.username){
+            } if(currentUser.username !== res.locals.user.username){
                 req.flash("error_msg", "Más profilképét nem módosíthatod!");
                 return res.redirect("/forum/");
             }  if(typeof req.body.img === "undefined"){
@@ -18,24 +18,19 @@ module.exports = function(objRepo){
                     if(err){
                         console.log(err);
                     } else {
-                        console.log(commentimg)
                         objRepo.Comment.updateMany({author: currentUser.username}, {img: req.body.img}, function(err,data){
                             if(err){
                                 console.log(err)
                             } 
-                            console.log(data)
-                        });
-                        objRepo.Topic.updateMany({author: currentUser.username}, {img: req.body.img}, function(err,data){
-                            if(err){
-                                console.log(err)
-                            } 
-                            console.log(data)
-                        });
-                        req.flash("success_msg", "Sikeresen módosítás! Kérlek jelentkezz be újra");
-                        res.redirect('/forum/login')
-                        setTimeout(function(){
-                            req.session.destroy()
-                        },2000)
+                            objRepo.Topic.updateMany({author: currentUser.username}, {img: req.body.img}, function(err,data){
+                                if(err){
+                                    console.log(err)
+                                } 
+                                res.locals.user.img = req.body.img
+                                req.flash("success_msg", "Sikeresen módosítottad profilképed!");
+                                res.redirect('/forum/')
+                            });
+                        });  
                     }
                 })
             }  

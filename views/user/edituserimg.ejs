@@ -9,10 +9,33 @@
                             <label class="control-label" for="field1"></label>
                             <div class="controls">
                                 <%- include('../msg')%>
-                                <span>Például: https://valami.hu/asd123.jpg</span>
                                 <form action="/forum/user/<%= user._id%>/edit" method="POST" role="form" autocomplete="off">
-                                    <input style="width: 300px" class="form-control" type="text" name="img" value="<%=user.img%>"> 
-                                    <button class="btn btn-warning btn-block mb-3">Mentés</button>
+                                        <label>
+                                            <input type="radio" name="img" value="/profilimages/profil-image01.jpg" checked>
+                                            <img src="/profilimages/profil-image01.jpg">
+                                          </label>
+                                        <label>
+                                            <input type="radio" name="img" value="/profilimages/profil-image02.jpg" checked>
+                                            <img src="/profilimages/profil-image02.jpg">
+                                          </label>
+                                        <label>
+                                            <input type="radio" name="img" value="/profilimages/profil-image03.jpg" checked>
+                                            <img src="/profilimages/profil-image03.jpg">
+                                          </label>
+                                        <label>
+                                            <input type="radio" name="img" value="/profilimages/profil-image04.jpg" checked>
+                                            <img src="/profilimages/profil-image04.jpg">
+                                          </label>
+                                        <label>
+                                            <input type="radio" name="img" value="/profilimages/profil-image05.jpg" checked>
+                                            <img src="/profilimages/profil-image05.jpg">
+                                          </label>
+
+                                    <!-- <input style="width: 300px" class="form-control" type="text" name="img" value="<%=user.img%>">  -->
+                                    <div class="text-center"> 
+                                        <button style="width: 150px;" class="btn btn-warning mb-3">Mentés</button>
+                                    </div>
+                                    
                                 </form>
                             </div>
                         </div>

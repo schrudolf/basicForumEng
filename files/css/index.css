@@ -189,8 +189,8 @@ h3 {
 
 .fa:hover {
     color: white;
-    transform: scale(1.5);
-    transition-duration: 1s;
+    transform: scale(1.2);
+    transition-duration: 0.8s;
 }
 
 /* profil img */
@@ -229,3 +229,27 @@ h3 {
     text-align: center;
     border-radius: 15px;
 }
+
+/* HIDE RADIO */
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* IMAGE STYLES */
+[type=radio] + img {
+    cursor: pointer;
+    margin: 10px 10px;
+    max-width: 100px;
+    border-radius: 10%;
+  }
+  
+  /* CHECKED STYLES */
+  [type=radio]:checked + img {
+    border: 3px solid rgb(5, 199, 15);
+    border-radius: 10%;
+    transform: scale(1.3);
+    transition-duration: 0.7s;
+  }
