@@ -3,7 +3,7 @@ module.exports = function(objRepo){
         objRepo.Comment.findOne({_id: req.params.commentid}, function(err, comment){
             if(err) {
                 return console.log(err);
-            } if(comment.author !== user.username){
+            } if(comment.author !== res.locals.user.username){
                 req.flash("error_msg", "Más hozzászólását nem módosíthatod!");
                 return res.redirect("/forum/" + req.params.contentid + "/" + req.params.forumid + "/" + req.params.topicid);
             } else {

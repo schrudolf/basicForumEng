@@ -4,7 +4,7 @@ module.exports = function(objRepo){
             if(err){
                 req.flash('error_msg', 'Hiba nem törölhető!')
                 return res.redirect('/forum/' + req.params.contentid + "/" + req.params.forumid + "/");
-            } if(topic.author !== user.username){
+            } if(topic.author !== res.locals.user.username){
                 req.flash('error_msg', 'Csak a saját témád törölheted!')
                 return res.redirect('/forum/' + req.params.contentid + "/" + req.params.forumid + "/");
             } else {

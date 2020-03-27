@@ -3,7 +3,7 @@ module.exports = function(objRepo){
         objRepo.Topic.findOne({_id: req.params.topicid}, function(err, topic){
             if(err) {
                 return console.log(err);
-            } if(topic.author !== user.username){
+            } if(topic.author !== res.locals.user.username){
                 req.flash("error_msg", "Más témáját nem módosíthatod!");
                 return res.redirect("/forum/" + req.params.contentid + "/" + req.params.forumid + "/" + req.params.topicid);
             } else {
