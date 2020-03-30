@@ -5,7 +5,7 @@ const app       = express();
 const flash = require('connect-flash');
 const session = require('express-session')
 
-
+require('dotenv').config()
 
 app.set('view engine', 'ejs');
 app.use(express.static('files'))
@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(
     session({
-        secret: 'secret',
+        secret: process.env.SESSION_SECRET,
         resave: false,
         saveUninitialized: true
     })
@@ -35,7 +35,7 @@ app.use(function(req,res,next) {
 // Load routing
 require('./route/index')(app);
 
-app.listen(80, "192.168.0.12", function(err){
+app.listen(80, process.env.IP_HOST, function(err){
     if(err){
         console.log(err);
     } else {
