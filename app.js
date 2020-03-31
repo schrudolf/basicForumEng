@@ -4,6 +4,9 @@ const mongoose  = require('mongoose');
 const app       = express();
 const flash = require('connect-flash');
 const session = require('express-session')
+const moment = require('moment');
+
+moment.locale("hu"); 
 
 require('dotenv').config()
 
@@ -29,6 +32,7 @@ app.use(function(req,res,next) {
     res.locals.user = req.session.user;
     res.locals.errorMsg = req.flash('error_msg');
     res.locals.successMsg = req.flash('success_msg');
+    app.locals.moment = require('moment');
     next();
 })
 
@@ -39,6 +43,6 @@ app.listen(80, process.env.IP_HOST, function(err){
     if(err){
         console.log(err);
     } else {
-        console.log('Weboldal 3000-es porton');
+        console.log('Weboldal 80-es porton');
     }
 });

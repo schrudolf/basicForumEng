@@ -20,8 +20,8 @@
                                  </div>
                             </div>
                             <div class="col-9 showtopic p-3 ">
-                                <h1 class="p-1"><%= data.topic.title %></h1>
-                             <p class="p-1 pt-3">Létrehozva: <%= data.topic.date.toLocaleString() %></p>
+                                <h1 class="p-1"><%= data.topic.title %></h1>                            
+                             <p class="p-1 pt-3">Létrehozva: <%= moment(data.topic.date, "YYYYMMDD").fromNow()%></p>
                              <p class="p-1 show-desc"><%= data.topic.desc %></p>
                              <% if(data.topic.author === user.username) { %>
                              <div class="d-flex align-items-end justify-content-end " style="height: 200px;">
@@ -40,7 +40,7 @@
                                 <div class="mb-3 row">
                              <div class="col-3 bg-dark profile">
                                  <div class="mb-3">
-                                <p> <%= comment.author %> </p>
+                                <p class="pt-2"> <%= comment.author %> </p>
                                  </div>
                                 <div class="pb-3">
                                     <img class="img-fluid topic-img" src="<%= comment.img %> " alt="profil-image">
@@ -50,7 +50,7 @@
                                 </div>
                              </div>
                              <div class="col-9 p-3 showcomments">
-                                <p class="p-content p-1">Elküldve: <%= comment.date.toLocaleString() %> </p> 
+                                <p class="p-content p-1">Elküldve: <%= moment(comment.date, "YYYYMMDD").fromNow() %>  </p>
                                 <p class=" p-1 show-desc"> <%= comment.desc %> </p>
                                 <% if(comment.author === user.username) { %>
                                 <div class="d-flex align-items-end justify-content-end" style="height: 200px;">
