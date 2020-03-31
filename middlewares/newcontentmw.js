@@ -7,9 +7,8 @@ module.exports = function(objRepo) {
             }
             objRepo.Newcontent.create({title: req.body.title, desc: req.body.desc}, function(err, newcontent){
                 if(err){
-                    console.log(err);
+                    return console.log(err);
                 } else{
-                    console.log(newcontent)
                     res.redirect('/forum/');
                     next();
                 }

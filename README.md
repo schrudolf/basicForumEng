@@ -1,4 +1,4 @@
 # forum-with-mongodb
 Forum with mongoDB
 
-version: 0.8.0
+version: 1.0.0

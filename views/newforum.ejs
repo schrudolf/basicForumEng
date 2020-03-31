@@ -3,19 +3,21 @@
 <div class="container">
         <div class="container index">
                 <h2 class="text-center">Új Fórum létrehozása </h2>
-                <div class="container d-flex justify-content-center">
-                    <div class="row">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-8">
                         <div class="control-group" id="fields">
                             <label class="control-label" for="field1"></label>
                             <div class="controls"> 
                                 <%- include('msg')%>
                                 <form action="/forum/<%=id %>/new" method="POST" role="form" autocomplete="off">
-                                    <input class="form-control" type="text" name="forumname" placeholder="Tartalom neve...">
+                                    <input class="form-control mytext" type="text" name="forumname" placeholder="Fórum neve...">
                                     <button class="btn btn-success btn-block mb-3">Küldés</button>
                                 </form>
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
                 <a class="btn btn-success btn-sm mb-3" href="/forum/<%= id %>">Vissza</a>
            </div>

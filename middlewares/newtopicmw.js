@@ -5,7 +5,10 @@ module.exports = function(objRepo) {
         }
         if(req.body.title === "" || req.body.desc === "") {
             res.locals.errorMsg.push("Nem töltöttél ki minden mezőt!")
-            res.render('newtopic', {id: req.params.id, forumid: req.params.forumid});
+            return res.render('newtopic', {id: req.params.id, forumid: req.params.forumid});
+        }if(req.body.title.length > 30) {
+            res.locals.errorMsg.push("Maximum 30 karakteres lehet a címe!")
+            return res.render('newtopic', {id: req.params.id, forumid: req.params.forumid});
         } else {
             objRepo.Forum.findById(req.params.forumid, function(err, forum){
                 if(err){
