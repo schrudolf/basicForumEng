@@ -14,6 +14,7 @@ const deletecommentmw = require('../middlewares/user/deletecommentmw');
 const login = require('../middlewares/user/login');
 const renderregistermw = require('../middlewares/user/rendRegistermw');
 const newusermw = require('../middlewares/user/newusermw');
+const successemail = require('../middlewares/email/successemailmw');
 
 
 
@@ -49,7 +50,8 @@ module.exports = function(app){
 
     app.use('/forum/register',
         renderregistermw(objRepo),
-        newusermw(objRepo));
+        newusermw(objRepo),
+        successemail(objRepo));
         
     app.use('/forum/login',
         login(objRepo));

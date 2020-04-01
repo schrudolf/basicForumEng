@@ -35,6 +35,7 @@ module.exports = function(objRepo){
                                 newUser.save()
                                 req.flash('success_msg','Sikeres regisztráció!');
                                 res.redirect('/forum/login')
+                                return next();
                                 });
                             })
                     }
