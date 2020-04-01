@@ -17,6 +17,10 @@ module.exports = function(objRepo){
                     res.locals.errorMsg.push('Nem található ilyen felhasználó');
                     return res.render('user/login');
                 }
+                if(!user.active){
+                    res.locals.errorMsg.push('Felhasználó nem aktív. Kérlek aktiváld e-mailben kapott linkel');
+                    return res.render('user/login');
+                }
                 try {
                     if(await bcrypt.compare(req.body.password, user.password)) {
                         req.flash('success_msg', 'Üdvözöllek a fórumon! ' + user.username)

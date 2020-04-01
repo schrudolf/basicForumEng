@@ -33,11 +33,12 @@ module.exports = function(objRepo){
                                 if(err) throw err;
                                 newUser.password = hash;
                                 newUser.save()
-                                req.flash('success_msg','Sikeres regisztráció!');
+                                req.flash('success_msg','Sikeres regisztráció! E-mailben elküldtük az aktivációs linket');
                                 res.redirect('/forum/login')
-                                return next();
                                 });
+                                next();
                             })
+                            
                     }
                 })
                     

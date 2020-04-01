@@ -1,9 +1,8 @@
 <%- include('../header')%>
-    <div class="container d-flex justify-content-center pt-5 mb-5 ">
+    <div class="container d-flex justify-content-center pt-5 mb-3 ">
         <div class="row userform d-flex justify-content-center">
             <div>
                 <h1 class="text-center mb-4">Regisztráció</h1>
-                <%- include('../msg')%>
                 <form action="/forum/register" method="POST" role="form" autocomplete="off">
                     <div class="form-group">
                         <input class="form-control" type="text" name="username" placeholder="Felhasználónév" required>
@@ -25,4 +24,9 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <%- include('../msg')%>
+        </div>
+    </div> 
 <%- include('../footer')%>
