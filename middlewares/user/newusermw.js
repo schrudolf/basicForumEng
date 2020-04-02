@@ -38,12 +38,10 @@ module.exports = function(objRepo){
                                 });
                                 next();
                             })
-                            
-                    }
-                })
-                    
+                        }
+                    })  
                 }
             })
-    }
+        }
     }
 }
