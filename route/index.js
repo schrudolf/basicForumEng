@@ -15,10 +15,14 @@ const login = require('../middlewares/user/login');
 const renderregistermw = require('../middlewares/user/rendRegistermw');
 const newusermw = require('../middlewares/user/newusermw');
 const activatemw = require('../middlewares/user/activatemw');
-const successemail = require('../middlewares/email/successemailmw');
+const newpwmw = require('../middlewares/user/newpwmw');
 const forgotrend = require('../middlewares/forgot/forgotrend');
 const forgotemailpw = require('../middlewares/forgot/forgotemailpw');
+const renderpwchangemw = require('../middlewares/forgot/renderpwchangemw');
+
 const newpwemail = require('../middlewares/email/newpwemail');
+const successemail = require('../middlewares/email/successemailmw');
+const successnewpwmw = require('../middlewares/email/successnewpwmw');
 
 
 
@@ -68,7 +72,14 @@ module.exports = function(app){
 
     app.post('/forum/forgot',
         forgotemailpw(objRepo),
-        newpwemail(objRepo));    
+        newpwemail(objRepo));
+        
+    app.get('/forum/forgot/:id',
+        renderpwchangemw(objRepo));
+
+    app.post('/forum/forgot/newpw/:id',
+        newpwmw(objRepo),
+        successnewpwmw(objRepo));    
         
     app.use('/forum/user/:userid/edit',
         authmw(objRepo),  

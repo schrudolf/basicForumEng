@@ -10,17 +10,18 @@ module.exports = function(objRepo){
                 res.render("forgot/forgot");
             } else {
                 const token = bcrypt.hashSync('secrettoken', 10);
-                function savetoken(token){
-                    forgotuser.forgottoken = token;
-                    forgotuser.forgottokenexpire = Date.now() + 3600000;
+                const newToken = token.replace(/\//g, '');
+                function savetoken(newToken){
+                    forgotuser.forgottoken = newToken;
+                    forgotuser.forgottokenexpire = Date.now() + 3600000;  //3600000 1 hour
                     forgotuser.save();
-                    res.locals.token = token;
+                    res.locals.token = newToken;
                     res.locals.forgotuser = forgotuser;
                     req.flash('success_msg', (res.locals.forgotuser.email) + ' | E-mail címre elküldtük a jelszó módosításához szükséges linket!');
                     res.redirect('/forum/login');
                     return next();
                 }
-                savetoken(token)
+                savetoken(newToken)
             }
         })
     }
