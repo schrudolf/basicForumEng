@@ -11,6 +11,7 @@ const UserSchema = new mongoose.Schema({
     forgottoken: {type: String},
     forgottokenexpire: {type: Date},
     img: {type: String, default: 'https://i.imgur.com/VmaOQ5X.png'},
+    upload: {type: Boolean, default: false},
     rank: {type: Number, default: 0}
 
 }) 

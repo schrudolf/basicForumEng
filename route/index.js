@@ -16,6 +16,7 @@ const renderregistermw = require('../middlewares/user/rendRegistermw');
 const newusermw = require('../middlewares/user/newusermw');
 const activatemw = require('../middlewares/user/activatemw');
 const newpwmw = require('../middlewares/user/newpwmw');
+const imgupload = require('../middlewares/user/imgupload');
 const forgotrend = require('../middlewares/forgot/forgotrend');
 const forgotemailpw = require('../middlewares/forgot/forgotemailpw');
 const renderpwchangemw = require('../middlewares/forgot/renderpwchangemw');
@@ -38,6 +39,10 @@ const Topic = require('../models/topic');
 const Comment = require('../models/comments');
 const User = require('../models/user');
 
+//multer
+var multer  = require('multer');
+
+
 // Routing
 module.exports = function(app){
     const objRepo = {
@@ -47,6 +52,16 @@ module.exports = function(app){
         Comment: Comment,
         User: User
     };
+
+    const storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+          cb(null, 'files/profilimages/')
+        },
+        filename: function (req, file, cb) {
+          cb(null, file.fieldname + '-' + req.session.user.username + ".jpeg")
+        }
+      })
+    const upload = multer({ storage: storage });
 
     app.use('/forum/logout', logoutmw(objRepo));   
 
@@ -82,6 +97,11 @@ module.exports = function(app){
     app.use('/forum/user/:userid/edit',
         authmw(objRepo),  
         edituserimgmw(objRepo));
+
+    app.post('/forum/user/:userid/avatar',
+        authmw(objRepo),  
+        upload.single('avatar'),
+        imgupload(objRepo));
 
     app.use('/forum/newcontent',
         authmw(objRepo),

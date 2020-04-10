@@ -30,13 +30,28 @@
                                             <input type="radio" name="img" value="/profilimages/profil-image05.jpg" checked>
                                             <img src="/profilimages/profil-image05.jpg">
                                           </label>
-
-                                    <!-- <input style="width: 300px" class="form-control" type="text" name="img" value="<%=user.img%>">  -->
+                                          <% if(user.upload){ %>
+                                            <div>
+                                              <p>Saját feltöltött:</p>
+                                              <label>
+                                                <input type="radio" name="img" value="/profilimages/avatar-<%= user.username%>.jpeg" checked>
+                                                <img src="/profilimages/avatar-<%= user.username%>.jpeg" alt="Még nem töltöttél fel" >
+                                              </label>
+                                            </div>
+                                          <% }%>
                                     <div class="text-center"> 
                                         <button style="width: 150px;" class="btn btn-warning mb-3">Mentés</button>
-                                    </div>
-                                    
+                                    </div>   
                                 </form>
+                                <div>
+                                  <p>Saját fotó feltöltése:</p>
+                                  <form action="/forum/user/<%= user._id%>/avatar" method="POST" enctype="multipart/form-data">
+                                    <input type="file" name="avatar" />
+                                    <div class="text-center"> 
+                                      <button style="width: 150px;" class="btn btn-warning mb-3">Feltöltés</button>
+                                  </div>
+                                  </form>
+                                </div>
                             </div>
                         </div>
                     </div>
