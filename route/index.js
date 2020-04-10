@@ -40,7 +40,7 @@ const Comment = require('../models/comments');
 const User = require('../models/user');
 
 //multer
-var multer  = require('multer');
+const multer  = require('multer');
 
 
 // Routing
