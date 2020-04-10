@@ -38,8 +38,6 @@ const Topic = require('../models/topic');
 const Comment = require('../models/comments');
 const User = require('../models/user');
 
-
-
 // Routing
 module.exports = function(app){
     const objRepo = {

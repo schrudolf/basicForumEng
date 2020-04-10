@@ -26,7 +26,7 @@ module.exports = function(objRepo){
                                 if(err){
                                     console.log(err)
                                 } 
-                                res.locals.user.img = req.body.img
+                                req.session.user.img = req.body.img;
                                 req.flash("success_msg", "Sikeresen módosítottad profilképed!");
                                 res.redirect('/forum/')
                             });

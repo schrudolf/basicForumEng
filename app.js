@@ -16,9 +16,10 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(
     session({
+        name: 'test cookie',
         secret: process.env.SESSION_SECRET,
-        resave: false,
-        saveUninitialized: true
+        resave: true,
+        saveUninitialized: true,
     })
 );
 
@@ -38,6 +39,7 @@ app.use(function(req,res,next) {
 
 // Load routing
 require('./route/index')(app);
+
 
 app.listen(3000, function(err){
     if(err){

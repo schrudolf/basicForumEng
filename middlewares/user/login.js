@@ -1,4 +1,5 @@
 const bcrypt = require('bcryptjs');
+const ip = require('ip');
 
 module.exports = function(objRepo){
     return function(req,res,next){
@@ -25,6 +26,8 @@ module.exports = function(objRepo){
                     if(await bcrypt.compare(req.body.password, user.password)) {
                         req.flash('success_msg', 'Üdvözöllek a fórumon! ' + user.username)
                         req.session.successLogin = true;
+                        user.ipaddress = ip.address();
+                        user.save();
                         req.session.user = user;
                         res.redirect('/forum/') 
                     } else {

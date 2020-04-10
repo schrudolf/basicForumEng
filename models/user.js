@@ -5,6 +5,7 @@ const UserSchema = new mongoose.Schema({
     email: String,
     password: String,
     active: { type: Boolean, default: false},
+    ipaddress: {type: String, default: "127.0.0.1"},
     activetoken: {type: String, default: mongoose.Types.ObjectId},
     registerdate: {type: Date, default: Date.now},
     forgottoken: {type: String},
