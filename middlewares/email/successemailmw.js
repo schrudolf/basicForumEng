@@ -24,7 +24,7 @@ module.exports = function(objRepo){
                                 subject: 'Sikeres regisztráció teszt fórumra',
                                 html: '<h1>Üdvözöllek a fórumon!</h1><p>Sikeres regisztráció!</p><p>Felhasználónév: <span> ' 
                                 + req.body.username + '</span></p>' +
-                                '<br><p>Aktivációs link: <span>http://localhost:3000/forum/activate/' + token + '</span></p>'
+                                '<br><p>Aktivációs link: <span>http://' + process.env.IP_ADDRESS + "/forum/activate/" + token + '</span></p>'
                             };
                             
                             transporter.sendMail(mailOptions, function(error, info){

@@ -13,7 +13,9 @@ p {
 
 .index {
     height: 100%;
-    background: rgb(124, 158, 218);
+    /* background: rgb(124, 158, 218); */
+    /* background: linear-gradient(to right, rgba(153, 223, 41, 0.945), pink); */
+    background: linear-gradient(to right, rgb(64, 107, 189), black);
     color: white;
     border-left: 2px solid white;
     border-right: 2px solid white;
@@ -56,7 +58,7 @@ p {
     font-size: 1.2em;
     font-weight: bold;
     text-transform: capitalize;
-    background: rgb(64, 107, 189);
+    background: linear-gradient(to right, rgb(64, 107, 189), black);
     border-left: 2px solid white;
     border-right: 2px solid white;
 }
@@ -69,14 +71,6 @@ p {
 
 /* Forum */
 
-a {
-    color: white;
-}
-
-a:hover {
-    text-decoration: none;
-    color: rgb(238, 119, 119);
-}
 
 .search {
     padding-top: 1em;
@@ -86,25 +80,24 @@ a:hover {
 
 .headforum {
     margin: 0.6em auto;
-    background: rgb(64, 107, 189);
+    background: linear-gradient(to right, black, grey);
     padding: 0.5em;
     border: 1px solid white;
     border-radius: 5px;
 }
 
 .headforum:hover {
-    background: rgb(47, 95, 184); 
-    color: black;
+    transform: scale(1.005);
 }
 
 /* lines */
 
 .h1-content {
-    color: white;
+    color: rgb(224, 77, 77);
 }
 
 .p-content {
-    color: white;
+    color: rgb(238, 204, 160);
     font-size: 1.1rem;
 }
 
@@ -154,7 +147,8 @@ h3 {
 }
 
 .showtopic {
-    background:rgb(103, 121, 155);
+    background: linear-gradient(to right, black, darkgrey);
+    color: rgb(224, 77, 77);
     border: 1px solid white;
 }
 
@@ -170,17 +164,20 @@ h3 {
 }
 
 .showcomments {
-    background: rgb(64, 107, 189);
+    background: linear-gradient(to right, black, grey);
+    color: rgb(224, 77, 77);
     border: 2px solid white;
 }
 
 .profile {
     border: 1px solid white;
+    background: black;
+    color: rgb(224, 77, 77);
 }
 
 .topic-img {
     border-radius: 5%;
-    min-width: 100%;
+    width: 100%;
 }
 
 /* icons */
@@ -262,4 +259,13 @@ h3 {
   .emojionearea > .emojionearea-editor {
     min-height: 250px;
     max-height: 350px;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+    color: rgb(238, 119, 119);
 }

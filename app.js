@@ -41,10 +41,10 @@ app.use(function(req,res,next) {
 require('./route/index')(app);
 
 
-app.listen(3000, function(err){
+app.listen(80, process.env.IP_HOST, function(err){
     if(err){
         console.log(err);
     } else {
-        console.log('Weboldal 3000-es porton');
+        console.log('Weboldal 80-as porton');
     }
 });

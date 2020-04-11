@@ -16,7 +16,7 @@ module.exports = function(objRepo){
             to: res.locals.forgotuser.email,
             subject: 'Jelszó módosítás',
             html: '<h1>Jelszó módosítás!</h1>' + 
-            '<p><span>http://localhost:3000/forum/forgot/' + res.locals.token + '</span></p>'
+            '<p><span>http://' + process.env.IP_ADDRESS + "/forum/forgot/" + res.locals.token + '</span></p>'
         };
         
         transporter.sendMail(mailOptions, function(error, info){

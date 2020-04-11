@@ -12,7 +12,7 @@
                 <div class="container d-inline pb-5">
                     <div class="row">
                         <div class="col-12 text-center d-inline-flex ">
-                            <div class="col-3 bg-dark p-1 profile">
+                            <div class="col-3 p-1 profile">
                              <p><%= data.topic.author %></p>
                                  <img class="img-fluid topic-img" src="<%= data.topic.img %> " alt="profil-image">
                                  <div class="p-1">
@@ -33,20 +33,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="container mt-5">
+                <div class="container">
                     <div class="row">
                         <div class="col-12 text-center">
                              <% data.topic.comments.forEach(function(comment){ %>
-                                <div class="mb-3 row">
-                             <div class="col-3 bg-dark profile">
-                                 <div class="mb-3">
-                                <p class="pt-2"> <%= comment.author %> </p>
-                                 </div>
-                                <div class="pb-3">
-                                    <img class="img-fluid topic-img" src="<%= comment.img %> " alt="profil-image">
+                                <div class="row">
+                             <div class="col-3 profile">
+                                 <div>
+                                     <p class="pt-2"> <%= comment.author %> </p>
+                                    </div>
                                     <div class="p-1">
+                                        <img class="img-fluid topic-img pb-1" src="<%= comment.img %> " alt="profil-image">
                                         <%- include('user/rank')%>
-                                     </div>
                                 </div>
                              </div>
                              <div class="col-9 p-3 showcomments">

@@ -16,7 +16,7 @@ module.exports = function(objRepo){
             to: res.locals.newtoken.email,
             subject: 'Sikeres jelszó módosítás! ' + res.locals.newtoken.username,
             html: '<h1>Sikeresen módosítottad a jelszavad a fórumon!</h1>' + 
-            '<p>Most már bejelentkezhetsz az új jelszóval:<span>http://localhost:3000/forum/login' + '</span></p>'
+            '<p>Most már bejelentkezhetsz az új jelszóval:<span>http://' + process.env.IP_ADDRESS + "/forum/login" + '</span></p>'
         };
         
         transporter.sendMail(mailOptions, function(error, info){
